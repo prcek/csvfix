@@ -46,6 +46,7 @@ func main() {
 	reader := csv.NewReader(inFile)
 	reader.Comma = ','
 	reader.LazyQuotes = true
+	reader.FieldsPerRecord = -1 // Allow variable number of fields
 
 	rows, err := reader.ReadAll()
 	if err != nil {
