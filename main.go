@@ -7,9 +7,22 @@ import (
 	"os"
 )
 
-// fixit processes a row and returns the modified row. To be implemented later.
+// fixit processes a row and returns the modified row.
 func fixit(row []string) []string {
-	// TODO: implement your logic here
+	if len(row) == 17 {
+		// row[3] = integer part, row[4] = decimal part
+		intPart := row[3]
+		decPart := row[4]
+		floatStr := intPart + "." + decPart
+		row[3] = floatStr
+		// Remove row[4]
+		row = append(row[:4], row[5:]...)
+	}
+
+	if len(row) != 16 {
+		fmt.Fprintf(os.Stderr, "Row length is not 16: %d\n", len(row))
+		return row // Return the row as is if it doesn't match expected length
+	}
 	return row
 }
 
