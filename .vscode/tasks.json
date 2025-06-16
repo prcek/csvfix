@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "go build -o csvfix .",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "run",
+      "type": "shell",
+      "command": "go run main.go -in input.csv -out output.csv",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}
